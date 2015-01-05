@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>TimeLogger</title>
+
+  <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  body, button, input, h3{
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+      font-weight: normal;
+  }
+  body {
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+  </style>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">LifeTrack</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="{:U('Index/index')}">时间记录</a>
+          </li>
+          <li>
+            <a href="{:U('Schedule/index')}">待办事项</a>
+          </li>
+					<li>
+            <a href="{:U('Category/index')}">事项分类</a>
+          </li>
+          <li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+	
+  <div class="container">
+    <h3>{$search_date}时间记录表</h3>
+    <div class="row">
+      <div class="col-xs-2">
+        <a href="{:U('edit', '', '')}" class="btn btn-primary">新建时间</a>
+      </div>
+      <div class="col-xs-6 col-xs-offset-4">
+        <form class="form-inline pull-right" method="get" action="{:U('index')}" role="form">
+          <div class="form-group">
+            <div class="input-group">
+              <select class="form-control" name="search_date">
+                <foreach name="date_list" item="er_date">
+                  <option>{$er_date}</option>
+                </foreach>
+              </select>
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">Go!</button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr style="width: 100%">
+              <td>#</td>
+              <td>事件描述</td>
+							<td>事件分类</td>
+              <td>开始时间</td>
+              <td>结束时间</td>
+							<td>花费时间（分钟）</td>
+            </tr>
+          </thead>
+          <tbody>
+            <foreach name='er_list' item='er_info'>
+              <tr>
+                <td>{$key+1}</td>
+                <td>{$er_info.er_sddesc}</td>
+								<td>{$er_info.er_cgname}</td>
+                <td>{$er_info.er_starttime}</td>
+								<td>{$er_info.er_endtime}</td>
+                <td>{$er_info.er_eventtime|secondToMinute}</td>
+              </tr>
+            </foreach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</body>
+</html>
