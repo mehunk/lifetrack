@@ -6,11 +6,11 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>TimeLogger</title>
+  <title>LifeTrack - Schedule</title>
 
-  <link href="/lifetrack/Public/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/lifetrack/Public/css/datepicker3.css" rel="stylesheet">
-  <link href="/lifetrack/Public/css/bootstrap-switch.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/css/datepicker3.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap-switch/3.3.0/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
@@ -177,12 +177,12 @@
     </div>
   </div>
 
-  <script src="/lifetrack/Public/js/jquery-1.11.1.js"></script>
-  <script src="/lifetrack/Public/js/bootstrap.min.js"></script>
-  <script src="/lifetrack/Public/js/bootstrap-datepicker.js"></script>
-  <script src="/lifetrack/Public/js/locales/bootstrap-datepicker.zh-CN.js" charset="UTF-8"></script>
-  <script src="/lifetrack/Public/js/bootstrap-switch.min.js"></script>
-  <script src="/lifetrack/Public/js/scheduleIndexAddtion.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-switch/3.3.0/js/bootstrap-switch.min.js"></script>
+  <script src="/github/lifetrack/Public/js/scheduleIndexAddtion.js"></script>
   <script>
     var postUrl = "<?php echo U('save', '', '');?>";
     var deleteUrl = "<?php echo U('delete', '', '');?>";

@@ -6,16 +6,16 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>TimeLogger</title>
+  <title>LifeTrack - Edit</title>
 
-  <link href="/lifetrack/Public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
       font-weight: normal;
   }
   </style>
-  <link href="/lifetrack/Public/css/addtion.css" rel="stylesheet">
+  <link href="/github/lifetrack/Public/css/addtion.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,9 +51,9 @@
       </div>
     </div>
   </div>
-  <script src="/lifetrack/Public/js/jquery-1.11.1.js"></script>
-  <script src="/lifetrack/Public/js/bootstrap.min.js"></script>
-  <script src="/lifetrack/Public/js/indexEditAddtion.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="/github/lifetrack/Public/js/indexEditAddtion.js"></script>
   <script>
     var saveUrl = '<?php echo U('save', '', '');?>';
     var pageStep = <?php echo ($pageStep); ?>;

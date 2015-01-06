@@ -6,10 +6,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>LifeTrack</title>
+  <title>LifeTrack - Category</title>
 
-  <link href="/lifetrack/Public/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/lifetrack/Public/css/bootstrap-switch.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
@@ -123,10 +122,9 @@
     </div>
   </div>
 
-  <script src="/lifetrack/Public/js/jquery-1.11.1.js"></script>
-  <script src="/lifetrack/Public/js/bootstrap.min.js"></script>
-  <script src="/lifetrack/Public/js/bootstrap-switch.min.js"></script>
-  <script src="/lifetrack/Public/js/categoryIndexAddtion.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="/github/lifetrack/Public/js/categoryIndexAddtion.js"></script>
   <script>
     var postUrl = "<?php echo U('save', '', '');?>";
     var deleteUrl = "<?php echo U('delete', '', '');?>";

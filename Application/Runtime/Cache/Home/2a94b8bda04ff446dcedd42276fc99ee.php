@@ -6,9 +6,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>TimeLogger</title>
+  <title>LifeTrack - Index</title>
 
-  <link href="/lifetrack/Public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
@@ -100,7 +100,7 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="/lifetrack/Public/js/jquery-1.11.1.js"></script>
-  <script type="text/javascript" src="/lifetrack/Public/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
