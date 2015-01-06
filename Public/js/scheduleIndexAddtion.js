@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('#myModal').on('hidden.bs.modal', function (e) {
-		$('#myModal input[type!="checkbox"]').val('');
+		$('#myModal input[type!="checkbox"],#detail').val('');
 		$('#myModal select').val(1);
 		$('#myModal input[type="checkbox"]').bootstrapSwitch('state', false);
 	});
