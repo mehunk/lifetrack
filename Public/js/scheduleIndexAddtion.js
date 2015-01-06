@@ -109,6 +109,7 @@ $(document).ready(function() {
 					$('#eventdesc').val(data.sd_eventdesc);
 					$('#date').val(data.sd_date);
 					$('#plantime').val(data.sd_plantime);
+					$('#detail').val(data.sd_eventdesc);
 					$('#myModal').modal('show');
 					if(data.sd_importance == 1) $('#importance').bootstrapSwitch('state', true);
 					if(data.sd_urgency == 1) $('#urgency').bootstrapSwitch('state', true);
