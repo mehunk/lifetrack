@@ -115,6 +115,17 @@ $(document).ready(function() {
 					if(data.sd_urgency == 1) $('#urgency').bootstrapSwitch('state', true);
 				});
 			}
+		} else if($clickTarget.is('td:nth-child(2)>*') || $clickTarget.is('td:nth-child(2)')) {
+			var aHrefArray = ($clickTarget.parents('tr').attr('id')).split('-');
+			$.get(getDetailUrl, {
+				sd_id: aHrefArray[1]
+			}, function(data) {
+				$('#detailModal p').text(data);
+				$('#detailModal').modal('show');
+			});
 		}
 	});
+	
+	
+	//
 })

@@ -77,19 +77,19 @@
         <table class="table table-striped">
           <thead>
             <tr style="width: 100%">
-              <td>#</td>
-              <td>事件描述</td>
-							<td>事件分类</td>
-              <td>开始时间</td>
-              <td>结束时间</td>
-							<td>花费时间（分钟）</td>
+              <th>#</th>
+              <th>事件描述</th>
+							<th class="hidden-xs">事件分类</th>
+              <th>开始时间</th>
+              <th>结束时间</th>
+							<th>花费时间</th>
             </tr>
           </thead>
           <tbody>
             <?php if(is_array($er_list)): foreach($er_list as $key=>$er_info): ?><tr>
                 <td><?php echo ($key+1); ?></td>
                 <td><?php echo ($er_info["er_sddesc"]); ?></td>
-								<td><?php echo ($er_info["er_cgname"]); ?></td>
+								<td class="hidden-xs"><?php echo ($er_info["er_cgname"]); ?></td>
                 <td><?php echo ($er_info["er_starttime"]); ?></td>
 								<td><?php echo ($er_info["er_endtime"]); ?></td>
                 <td><?php echo (secondtominute($er_info["er_eventtime"])); ?></td>

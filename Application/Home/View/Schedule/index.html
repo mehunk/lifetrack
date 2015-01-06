@@ -119,6 +119,24 @@
       </div>
     </div>
   </div>
+	
+	  <!--  Modal content for the above example -->
+  <div id="detailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myLargeModalLabel">事件详情</h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+				<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
   <div class="container">
     <h3>{$search_date}事件待办表</h3>
@@ -149,13 +167,13 @@
         <table class="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-4">描述</td>
-							<td>计划用时（分钟）</td>
-              <td>标签</td>
-              <td>类别</td>
-              <td>计划/临时</td>
-              <td>操作</td>
+              <th class="col-md-1">#</th>
+              <th class="col-md-4">描述</th>
+							<th>计划用时</th>
+              <th>标签</th>
+              <th class="hidden-xs">类别</th>
+              <th class="hidden-xs">计划/临时</th>
+              <th class="hidden-xs">操作</th>
             </tr>
           </thead>
           <tbody>
@@ -178,11 +196,11 @@
                     <span class="label label-danger">紧急</span>
                   </if>
                 </td>
-                <td>{$sd_info.sd_cgname}</td>
-                <td>
+                <td class="hidden-xs">{$sd_info.sd_cgname}</td>
+                <td class="hidden-xs">
                   <if condition="$sd_info['sd_plan']">计划<else/>临时</if>
                 </td>
-                <td>
+                <td class="hidden-xs">
 									<a href="edit-{$sd_info.sd_id}" class="btn btn-primary btn-sm">编辑</a>
                   <a href="delete-{$sd_info.sd_id}" class="btn btn-danger btn-sm">删除</a>
                   <a href="complete-{$sd_info.sd_id}" class="btn btn-success btn-sm">完成</a>
@@ -205,7 +223,8 @@
     var postUrl = "{:U('save', '', '')}";
     var deleteUrl = "{:U('delete', '', '')}";
     var completeUrl = "{:U('complete', '', '')}";
-		var getSdInfoUrl = "{:U('getSdInfo', '', '')}"
+		var getSdInfoUrl = "{:U('getSdInfo', '', '')}";
+		var getDetailUrl = "{:U('getDetail', '', '')}";
   </script>
 </body>
 </html>

@@ -60,5 +60,11 @@ class ScheduleController extends Controller {
 		$sdInfo = M('schedule')->find($sd_id);
 		$this->ajaxReturn($sdInfo);
 	}
+	
+	public function getDetail() {
+		$sd_id = I('sd_id');
+		$detail = M('schedule')->where(array('sd_id' => $sd_id))->getField('sd_eventdetail');
+		$this->ajaxReturn($detail);
+	}
 }
 ?>

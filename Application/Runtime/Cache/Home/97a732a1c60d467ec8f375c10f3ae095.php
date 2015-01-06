@@ -101,6 +101,12 @@
                 <input type="checkbox" name="sd_urgency" id="urgency" data-on-text="是" data-off-text="否">
               </div>
             </div>
+            <div class="form-group">
+              <label for="detail" class="col-sm-2 control-label">事件详情</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" name="sd_eventdetail" id="detail" rows="3"></textarea>
+              </div>
+            </div>
 						<input type="hidden" id="id" name="sd_id" value="">
           </form>
         </div>
@@ -111,6 +117,24 @@
       </div>
     </div>
   </div>
+	
+	  <!--  Modal content for the above example -->
+  <div id="detailModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myLargeModalLabel">事件详情</h4>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+				<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
   <div class="container">
     <h3><?php echo ($search_date); ?>事件待办表</h3>
@@ -139,13 +163,13 @@
         <table class="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-4">描述</td>
-							<td>计划用时（分钟）</td>
-              <td>标签</td>
-              <td>类别</td>
-              <td>计划/临时</td>
-              <td>操作</td>
+              <th class="col-md-1">#</th>
+              <th class="col-md-4">描述</th>
+							<th>计划用时</th>
+              <th>标签</th>
+              <th class="hidden-xs">类别</th>
+              <th class="hidden-xs">计划/临时</th>
+              <th class="hidden-xs">操作</th>
             </tr>
           </thead>
           <tbody>
@@ -161,11 +185,11 @@
                   <?php if($sd_info['sd_importance']): ?><span class="label label-success">重要</span><?php endif; ?>
                   <?php if($sd_info['sd_urgency']): ?><span class="label label-danger">紧急</span><?php endif; ?>
                 </td>
-                <td><?php echo ($sd_info["sd_cgname"]); ?></td>
-                <td>
+                <td class="hidden-xs"><?php echo ($sd_info["sd_cgname"]); ?></td>
+                <td class="hidden-xs">
                   <?php if($sd_info['sd_plan']): ?>计划<?php else: ?>临时<?php endif; ?>
                 </td>
-                <td>
+                <td class="hidden-xs">
 									<a href="edit-<?php echo ($sd_info["sd_id"]); ?>" class="btn btn-primary btn-sm">编辑</a>
                   <a href="delete-<?php echo ($sd_info["sd_id"]); ?>" class="btn btn-danger btn-sm">删除</a>
                   <a href="complete-<?php echo ($sd_info["sd_id"]); ?>" class="btn btn-success btn-sm">完成</a>
@@ -187,7 +211,8 @@
     var postUrl = "<?php echo U('save', '', '');?>";
     var deleteUrl = "<?php echo U('delete', '', '');?>";
     var completeUrl = "<?php echo U('complete', '', '');?>";
-		var getSdInfoUrl = "<?php echo U('getSdInfo', '', '');?>"
+		var getSdInfoUrl = "<?php echo U('getSdInfo', '', '');?>";
+		var getDetailUrl = "<?php echo U('getDetail', '', '');?>";
   </script>
 </body>
 </html>

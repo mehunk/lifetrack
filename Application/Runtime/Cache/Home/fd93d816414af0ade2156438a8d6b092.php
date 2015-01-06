@@ -95,11 +95,11 @@
         <table class="table">
           <thead>
             <tr>
-              <td class="col-md-1">#</td>
-              <td class="col-md-5">分类名称</td>
-              <td>时间（分钟）</td>
-              <td>显示</td>
-              <td>操作</td>
+              <th class="col-md-1">#</th>
+              <th class="col-md-5">分类名称</th>
+              <th>时间（分钟）</th>
+              <th>显示</th>
+              <th>操作</th>
             </tr>
           </thead>
           <tbody>
