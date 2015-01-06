@@ -31,7 +31,8 @@ $(document).ready(function() {
 			},
 			sd_urgency: function() {
 				return $("#urgency").prop('checked')? 1 : 0;
-			}
+			},
+			sd_eventdetail: $('#detail').val()
 		}, function(data) {
 			var $label = $('<td></td>');
 			var $importanceLabel = $('<span class="label label-success">重要</span>');
