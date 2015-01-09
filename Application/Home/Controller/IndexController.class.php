@@ -77,7 +77,7 @@ class IndexController extends Controller {
 
   //按照时间轴来展示当日事件
   public function timeline() {
-    $search_date = '2014-1-8';
+    $search_date = '2015-1-8';
     $event_info = M('eventrecordView')->where(array('er_date' => $search_date))->getField('er_id,sd_eventdesc,sd_eventdetail');
     var_dump($event_info);
   }
