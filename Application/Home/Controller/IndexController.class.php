@@ -23,7 +23,7 @@ class IndexController extends Controller {
 			->assign('er_list', $er_list)
 			->display();
     }
-	
+
 	/**
 	 * 显示新建时间记录页面
 	 */
@@ -45,7 +45,7 @@ class IndexController extends Controller {
 			->assign('schedule_list', $schedule_list)
 			->display();
 	}
-	
+
 	/**
 	 * 保存时间记录
 	 * 1、开始时间 2、事件描述 3、结束时间
@@ -74,4 +74,11 @@ class IndexController extends Controller {
 		}
 
 	}
+
+  //按照时间轴来展示当日事件
+  public function timeline() {
+    $search_date = '2014-1-8';
+    $event_info = M('eventrecordView')->where(array('er_date' => $search_date))->getField('er_id,sd_eventdesc,sd_eventdetail');
+    var_dump($event_info);
+  }
 }
