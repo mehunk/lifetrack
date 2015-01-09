@@ -56,16 +56,18 @@
     <div class="row">
       <div class="col-md-12">
 				<ul class="cbp_tmtimeline">
-					<li>
-						<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
-						<div class="cbp_tmicon">
-              <i class="fa fa-trophy"> </i>
-            </div>
-						<div class="cbp_tmlabel">
-							<h2>Ricebean black-eyed pea</h2>
-							<p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant. Cabbage lentil cucumber chickpea sorrel gram garbanzo plantain lotus root bok choy squash cress potato summer purslane salsify fennel horseradish dulse. Winter purslane garbanzo artichoke broccoli lentil corn okra silver beet celery quandong. Plantain salad beetroot bunya nuts black-eyed pea collard greens radish water spinach gourd chicory prairie turnip avocado sierra leone bologi.</p>
-						</div>
-					</li>
+          <foreach name='er_list' item='er_info'>
+  					<li>
+  						<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+  						<div class="cbp_tmicon">
+                <i class="fa fa-trophy"> </i>
+              </div>
+  						<div class="cbp_tmlabel">
+  							<h2>{$er_info.er_sddesc}</h2>
+  							<p>{$er_info.er_sddetail}</p>
+  						</div>
+  					</li>
+          </foreach>
 				</ul>
       </div>
     </div>
