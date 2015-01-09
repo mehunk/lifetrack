@@ -58,9 +58,9 @@
 				<ul class="cbp_tmtimeline">
           <foreach name='er_list' item='er_info'>
   					<li>
-  						<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+  						<time class="cbp_tmtime"><span>{er_info.er_date}/span> <span>{$er_info.er_starttime}</span></time>
   						<div class="cbp_tmicon">
-                <i class="fa fa-trophy"> </i>
+                <i class="glyphicon glyphicon-fullscreen"> </i>
               </div>
   						<div class="cbp_tmlabel">
   							<h2>{$er_info.er_sddesc}</h2>
