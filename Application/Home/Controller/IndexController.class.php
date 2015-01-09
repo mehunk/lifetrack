@@ -80,7 +80,7 @@ class IndexController extends Controller {
     $search_date = '2015-1-8';
     $er_list = D('eventrecordView')->where(array('er_date' => $search_date))->getField('er_id,er_date,er_starttime,er_sddesc,er_sddetail');
     foreach($er_list as $key => $item) {
-      echo $item['er_starttime'] + date('H:i', $item['er_starttime']) + '<br/>';
+      echo $item['er_starttime'];
     } die;
     $this->assign('er_list', $er_list)->display();
   }
