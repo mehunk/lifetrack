@@ -1,9 +1,9 @@
-@font-face {
+/*@font-face {
     font-family: "ecoico";
     font-style: normal;
     font-weight: normal;
     src: url("../fonts/timelineicons/ecoico.eot?#iefix") format("embedded-opentype"), url("../fonts/timelineicons/ecoico.woff") format("woff"), url("../fonts/timelineicons/ecoico.ttf") format("truetype"), url("../fonts/timelineicons/ecoico.svg#ecoico") format("svg");
-}
+}*/
 .cbp_tmtimeline {
     list-style: outside none none;
     margin: 30px 0 0;
