@@ -11,6 +11,7 @@
   <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/css/datepicker3.min.css" rel="stylesheet">
   <link href="http://cdn.bootcss.com/bootstrap-switch/3.3.0/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+	<link href="/github/lifetrack/Public/css/bootstrap-clockpicker.min.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
@@ -89,6 +90,17 @@
                 <input type="text" class="form-control" id="plantime" name="sd_plantime" placeholder="计划用时">
               </div>
             </div>
+						<div class="form-group">
+              <label for="starttime" class="col-sm-2 control-label">开始时间</label>
+              <div class="col-sm-10">
+								<div class="input-group clockpicker">
+									<input type="text" class="form-control" id="starttime" name="sd_starttime">
+									<span class="input-group-addon">
+											<span class="glyphicon glyphicon-time"></span>
+									</span>
+								</div>
+              </div>
+            </div>
             <div class="form-group">
               <label for="importance" class="col-sm-2 control-label">重要程度</label>
               <div class="col-sm-10">
@@ -163,8 +175,9 @@
         <table class="table">
           <thead>
             <tr>
-              <th class="col-md-1">#</th>
-              <th class="col-md-4">描述</th>
+              <th>#</th>
+              <th class="col-md-3">描述</th>
+							<th>开始时间</th>
 							<th>计划用时</th>
               <th>标签</th>
               <th class="hidden-xs">类别</th>
@@ -180,6 +193,7 @@
                   <?php else: ?>
                     <?php echo ($sd_info["sd_eventdesc"]); endif; ?>
                 </td>
+								<td><?php echo ($sd_info["sd_starttime"]); ?></td>
 								<td><?php echo ($sd_info["sd_plantime"]); ?></td>
                 <td>
                   <?php if($sd_info['sd_importance']): ?><span class="label label-success">重要</span><?php endif; ?>
@@ -197,7 +211,7 @@
               </tr><?php endforeach; endif; ?>
           </tbody>
         </table>
-      </div>
+			</div>
     </div>
   </div>
 
@@ -206,6 +220,7 @@
   <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
   <script src="http://cdn.bootcss.com/bootstrap-switch/3.3.0/js/bootstrap-switch.min.js"></script>
+	<script src="/github/lifetrack/Public/js/bootstrap-clockpicker.min.js"></script>
   <script src="/github/lifetrack/Public/js/scheduleIndexAddtion.js"></script>
   <script>
     var postUrl = "<?php echo U('save', '', '');?>";

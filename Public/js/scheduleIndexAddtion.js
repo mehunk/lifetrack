@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	$('.clockpicker').clockpicker({autoclose: true});
+
 	$('#myModal').on('hidden.bs.modal', function (e) {
 		$('#myModal input[type!="checkbox"],#detail').val('');
 		$('#myModal select').val(1);
@@ -14,10 +16,12 @@ $(document).ready(function() {
 		autoclose: true,
 		todayHighlight: true
 	});
+	
+	
 
 	//初始化bootstrapSwitch插件
 	$('input[type="checkbox"]').bootstrapSwitch();
-
+	
 	//保存待办事项
 	$('#saveSchedule').click(function() {
 		$.post(postUrl, {
@@ -26,6 +30,7 @@ $(document).ready(function() {
 			sd_cgid: $('#category').val(),
 			sd_date: $('#date').val(),
 			sd_plantime: $('#plantime').val(),
+			sd_starttime: $('#starttime').val(),
 			sd_importance: function() {
 				return $('#importance').prop('checked')? 1 : 0;
 			},
@@ -51,6 +56,7 @@ $(document).ready(function() {
 										.addClass('success')
 										.append('<td>new</td>')
 										.append('<td>' + $('#eventdesc').val() + '</td>')
+										.append('<td>' + $('#starttime').val() + '</td>')
 										.append('<td>' + $('#plantime').val() + '</td>')
 										.append($label)
 										.append('<td>' + $('select#category option:selected').text() + '</td>')
@@ -65,14 +71,15 @@ $(document).ready(function() {
 					$label.append($urgencyLabel);
 				$tr.find('td:eq(1)').text($('#eventdesc').val());
 				$tr.find('td:eq(2)').text($('#plantime').val());
+				$tr.find('td:eq(3)').text($('#plantime').val());
 				
-				$tr.find('td:eq(3)').html('');
+				$tr.find('td:eq(4)').html('');
 				if($('#importance').prop('checked'))
-					$tr.find('td:eq(3)').append($importanceLabel).append(' ');
+					$tr.find('td:eq(4)').append($importanceLabel).append(' ');
 				if($('#urgency').prop('checked'))
-					$tr.find('td:eq(3)').append($urgencyLabel);
+					$tr.find('td:eq(4)').append($urgencyLabel);
 
-				$tr.find('td:eq(4)').text($('#category').find('option[value="' + $('#category').val() + '"]').text());
+				$tr.find('td:eq(5)').text($('#category').find('option[value="' + $('#category').val() + '"]').text());
 				$tr.addClass('success');
 			}
 			$('#myModal').modal('hide');			
@@ -125,7 +132,4 @@ $(document).ready(function() {
 			});
 		}
 	});
-	
-	
-	//
 })
