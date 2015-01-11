@@ -17,10 +17,13 @@ $(document).ready(function() {
 		todayHighlight: true
 	});
 	
-	
-
 	//初始化bootstrapSwitch插件
 	$('input[type="checkbox"]').bootstrapSwitch();
+
+	$('li').click(function() {
+		var url = $(this).prop('href') + '/' + $('#search_date').val();
+		location.href = url;
+	})
 	
 	//保存待办事项
 	$('#saveSchedule').click(function() {
