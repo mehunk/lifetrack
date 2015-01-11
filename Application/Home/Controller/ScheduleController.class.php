@@ -18,9 +18,7 @@ class ScheduleController extends Controller {
 		//类别列表
 		$category_list = M('category')->where(array('cg_display' => '1'))->select();
 		//待办事项列表
-		//$sd_list = M('schedule')->join('LEFT JOIN __CATEGORY__ ON __SCHEDULE__.sd_category = __CATEGORY__.cg_id')->where(array('sd_date' => $search_date))->select();
-		$sd_list = D('scheduleView')->where(array('sd_date' => $search_date))->select();
-		//var_dump($sd_list);die;
+		$sd_list = D('scheduleView')->where(array('sd_date' => $search_date))->order('sd_starttime')->select();
 
 		$this->assign('date_list', $date_list)
 			->assign('category_list', $category_list)
@@ -70,7 +68,7 @@ class ScheduleController extends Controller {
 	//按照时间轴来展示当日事件
 	public function timeline() {
 		$search_date = I('search_date', date('Y-m-d'), 'trim');
-		$sd_list = M('schedule')->where(array('sd_date' => $search_date))->getField('sd_id,sd_starttime,sd_plantime,sd_eventdesc,sd_eventdetail');
+		$sd_list = M('schedule')->where(array('sd_date' => $search_date))->order('sd_starttime')->getField('sd_id,sd_starttime,sd_plantime,sd_eventdesc,sd_eventdetail');
 		$this->assign('sd_list', $sd_list)->display();
 	}
 }
