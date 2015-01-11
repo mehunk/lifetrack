@@ -9,20 +9,20 @@ class IndexController extends Controller {
 	/**
 	 * 显示指定日期的时间记录，默认显示当天
 	 */
-    public function index() {
-    	//获取指定日期，默认为当天
-    	$search_date = I('search_date', date('Y-m-d'), 'trim');
-    	$this->assign('search_date', $search_date);
+	public function index() {
+		//获取指定日期，默认为当天
+		$search_date = I('search_date', date('Y-m-d'), 'trim');
+		$this->assign('search_date', $search_date);
 
-    	//日期列表
-    	$date_list = M('eventrecord')->distinct(true)->order('er_date desc')->getField('er_date', true);
-    	//时间记录列表
-    	$er_list = D('eventrecordView')->where(array('er_date' => $search_date))->order('er_starttime')->select();
+		//日期列表
+		$date_list = M('eventrecord')->distinct(true)->order('er_date desc')->getField('er_date', true);
+		//时间记录列表
+		$er_list = D('eventrecordView')->where(array('er_date' => $search_date))->order('er_starttime')->select();
 
 		$this->assign('date_list', $date_list)
 			->assign('er_list', $er_list)
 			->display();
-    }
+	}
 
 	/**
 	 * 显示新建时间记录页面
@@ -75,13 +75,13 @@ class IndexController extends Controller {
 
 	}
 
-  //按照时间轴来展示当日事件
-  public function timeline() {
-    $search_date = '2015-1-8';
-    $er_list = D('eventrecordView')->where(array('er_date' => $search_date))->getField('er_id,er_date,er_starttime,er_sddesc,er_sddetail');
-    /*foreach($er_list as $key => $item) {
-      echo date('H:i', strtotime($item['er_starttime']));
-    } die;*/
-    $this->assign('er_list', $er_list)->display();
-  }
+	//按照时间轴来展示当日事件
+	public function timeline() {
+		$search_date = '2015-1-8';
+		$er_list = D('eventrecordView')->where(array('er_date' => $search_date))->getField('er_id,er_date,er_starttime,er_sddesc,er_sddetail');
+		/*foreach($er_list as $key => $item) {
+		  echo date('H:i', strtotime($item['er_starttime']));
+		} die;*/
+		$this->assign('er_list', $er_list)->display();
+	}
 }
