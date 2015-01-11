@@ -74,7 +74,7 @@ $(document).ready(function() {
 				if($('#urgency').prop('checked'))
 					$label.append($urgencyLabel);
 				$tr.find('td:eq(1)').text($('#eventdesc').val());
-				$tr.find('td:eq(2)').text($('#plantime').val());
+				$tr.find('td:eq(2)').text($('#starttime').val());
 				$tr.find('td:eq(3)').text($('#plantime').val());
 				
 				$tr.find('td:eq(4)').html('');
@@ -120,7 +120,7 @@ $(document).ready(function() {
 					$('#eventdesc').val(data.sd_eventdesc);
 					$('#date').val(data.sd_date);
 					$('#plantime').val(data.sd_plantime);
-					$('#plantime').val(data.sd_starttime);
+					$('#starttime').val(data.sd_starttime);
 					$('#detail').val(data.sd_eventdetail);
 					$('#myModal').modal('show');
 					if(data.sd_importance == 1) $('#importance').bootstrapSwitch('state', true);
