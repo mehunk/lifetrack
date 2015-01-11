@@ -22,7 +22,8 @@ $(document).ready(function() {
 
 	$('li').click(function() {
 		var url = $(this).prop('href') + '/' + $('#search_date').val();
-		location.href = url;
+		alert(url);
+		//location.href = url;
 	})
 	
 	//保存待办事项
