@@ -70,8 +70,8 @@ class ScheduleController extends Controller {
 	//按照时间轴来展示当日事件
 	public function timeline() {
 		$search_date = I('search_date', date('Y-m-d'), 'trim');
-		$sd_list = M('schedule')->where(array('sd_date' => $search_date))->getField('sd_id,sd_starttime,sd_plantime,sd_eventdesc,sd_evnetdetail');
-		var_dump($sd_list);
+		$sd_list = M('schedule')->where(array('sd_date' => $search_date))->getField('sd_id,sd_starttime,sd_plantime,sd_eventdesc,sd_eventdetail');
+		//var_dump($sd_list);die;
 		$this->assign('sd_list', $sd_list)->display();
 	}
 }
