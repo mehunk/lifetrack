@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 	$('#search li').click(function(event) {
 		event.preventDefault();
-		var url = $(this).attr('href') + '/' + $('#search_date').val();
+		var url = $(this).find('a').attr('href') + '/' + $('#search_date').val();
 		alert(url);
 		//location.href = url;
 	})
