@@ -20,8 +20,9 @@ $(document).ready(function() {
 	//初始化bootstrapSwitch插件
 	$('input[type="checkbox"]').bootstrapSwitch();
 
-	$('li').click(function() {
-		var url = $(this).prop('href') + '/' + $('#search_date').val();
+	$('#search li').click(function(event) {
+		event.preventDefault();
+		var url = $(this).attr('href') + '/' + $('#search_date').val();
 		alert(url);
 		//location.href = url;
 	})
