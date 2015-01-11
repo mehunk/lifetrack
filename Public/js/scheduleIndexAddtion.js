@@ -120,6 +120,7 @@ $(document).ready(function() {
 					$('#eventdesc').val(data.sd_eventdesc);
 					$('#date').val(data.sd_date);
 					$('#plantime').val(data.sd_plantime);
+					$('#plantime').val(data.sd_starttime);
 					$('#detail').val(data.sd_eventdetail);
 					$('#myModal').modal('show');
 					if(data.sd_importance == 1) $('#importance').bootstrapSwitch('state', true);
