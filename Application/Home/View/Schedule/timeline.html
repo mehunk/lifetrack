@@ -57,13 +57,13 @@
 				<ul class="cbp_tmtimeline">
           <foreach name='sd_list' item='sd_info'>
   					<li>
-  						<time class="cbp_tmtime"><span>{$sd_info.er_date}</span> <span>{$sd_info.er_starttime}</span></time>
+  						<time class="cbp_tmtime"><span>{$sd_info.sd_date}</span> <span>{$sd_info.sd_starttime}</span></time>
   						<div class="cbp_tmicon">
                 <i class="glyphicon glyphicon-fullscreen"> </i>
               </div>
   						<div class="cbp_tmlabel">
   							<h2>{$sd_info.sd_eventdesc}</h2>
-  							<p>{$sd_info.er_eventdetail}</p>
+  							<p>{$sd_info.sd_eventdetail}</p>
   						</div>
   					</li>
           </foreach>
