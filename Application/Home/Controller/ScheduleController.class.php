@@ -8,6 +8,7 @@ use Think\Controller;
 class ScheduleController extends Controller {
 	/**
 	 * 显示指定日期的待办事项，默认为当天
+	 * @return null
 	 */
 	public function index() {
 		$search_date = I('search_date', date('Y-m-d'), 'trim');
@@ -28,6 +29,7 @@ class ScheduleController extends Controller {
 
 	/**
 	 * 保存待办事项
+	 * @return null
 	 */
 	public function save() {
 		$schedule_info = I('post.');
@@ -40,6 +42,7 @@ class ScheduleController extends Controller {
 
 	/**
 	 * 删除待办事项
+	 * @return null
 	 */
 	public function delete() {
 		$condition = I('get.');
@@ -47,25 +50,40 @@ class ScheduleController extends Controller {
 			$this->success();
 	}
 
+	/**
+	 * 完成待办事项
+	 * @return null
+	 */
 	public function complete() {
 		$condition = I('get.');
 		if(M('schedule')->where($condition)->setField('sd_complete', 1))
 			$this->success();
 	}
 	
+	/**
+	 * 获取事项信息
+	 * @return null
+	 */
 	public function getSdInfo() {
 		$sd_id = I('sd_id');
 		$sdInfo = M('schedule')->find($sd_id);
 		$this->ajaxReturn($sdInfo);
 	}
 	
+	/**
+	 * 获取事项详细信息
+	 * @return null
+	 */
 	public function getDetail() {
 		$sd_id = I('sd_id');
 		$detail = M('schedule')->where(array('sd_id' => $sd_id))->getField('sd_eventdetail');
 		$this->ajaxReturn($detail);
 	}
 
-	//按照时间轴来展示当日事件
+	/**
+	 * 按照时间轴来展示当日事件
+	 * @return null
+	 */
 	public function timeline() {
 		$search_date = I('search_date', date('Y-m-d'), 'trim');
 		$sd_list = M('schedule')->where(array('sd_date' => $search_date))->order('sd_starttime')->getField('sd_id,sd_starttime,sd_plantime,sd_eventdesc,sd_eventdetail');

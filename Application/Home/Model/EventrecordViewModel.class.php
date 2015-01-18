@@ -1,7 +1,10 @@
 <?php
 namespace Home\Model;
 use Think\Model\ViewModel;
-
+/**
+ * 时间记录显示模型
+ * 在时间记录页面显示已发生时间和事项的信息
+ */
 class EventrecordViewModel extends ViewModel {
 	public $viewFields = array(
 		'Eventrecord' => array('er_id', 'er_date', 'er_starttime', 'er_endtime', 'er_eventtime', 'er_sdid', '_type' => 'LEFT'),

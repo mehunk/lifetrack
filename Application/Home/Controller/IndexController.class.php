@@ -68,12 +68,14 @@ class IndexController extends Controller {
 		}
 		else if(isset($eventItem['er_endtime'])) { //结束时间
 			M('eventrecord')->where('er_endtime is null')->save($eventItem);
-			//M('eventrecord')->execute("update __EVENTRECORD__ set er_eventtime = TIMESTAMPDIFF(SECOND, er_starttime, er_endtime) order by er_id desc limit 1");
 		}
 
 	}
 
-	//按照时间轴来展示当日事件
+	/**
+	 * 按照时间轴来展示当日事件
+	 * @return null
+	 */
 	public function timeline() {
 		$search_date = I('search_date', date('Y-m-d'), 'trim');
 		$er_list = D('eventrecordView')->where(array('er_date' => $search_date))->getField('er_id,er_date,er_starttime,er_sddesc,er_sddetail');
