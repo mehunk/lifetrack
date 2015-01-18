@@ -15,8 +15,6 @@ class IndexController extends Controller {
 		$search_date = I('search_date', date('Y-m-d'), 'trim');
 		$this->assign('search_date', $search_date);
 
-		//日期列表
-		$date_list = M('eventrecord')->distinct(true)->order('er_date desc')->getField('er_date', true);
 		//时间记录列表
 		$er_list = D('eventrecordView')->where(array('er_date' => $search_date))->order('er_starttime')->select();
 
