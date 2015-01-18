@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -6,9 +6,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>LifeTrack - Analysis</title>
+  <title>LifeTrack - Timeline</title>
 
   <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/github/lifetrack/Public/css/timeline.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
@@ -36,13 +37,13 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a href="{:U('Index/index')}">时间记录</a>
+            <a href="<?php echo U('Index/index');?>">时间记录</a>
           </li>
           <li>
-            <a href="{:U('Schedule/index')}">待办事项</a>
+            <a href="<?php echo U('Schedule/index');?>">待办事项</a>
           </li>
 					<li>
-            <a href="{:U('Category/index')}">事项分类</a>
+            <a href="<?php echo U('Category/index');?>">事项分类</a>
           </li>
           <li>
         </ul>
@@ -53,56 +54,23 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div id="container" style="min-width:800px;height:400px"></div>
+				<ul class="cbp_tmtimeline">
+          <?php if(is_array($sd_list)): foreach($sd_list as $key=>$sd_info): ?><li>
+  						<time class="cbp_tmtime"><span><?php echo ($sd_info["sd_date"]); ?></span> <span><?php echo ($sd_info["sd_starttime"]); ?></span></time>
+  						<div class="cbp_tmicon">
+                <i class="glyphicon glyphicon-bell"> </i>
+              </div>
+  						<div class="cbp_tmlabel">
+  							<h2><?php echo ($sd_info["sd_eventdesc"]); ?></h2>
+  							<p><?php echo ($sd_info["sd_eventdetail"]); ?></p>
+  						</div>
+  					</li><?php endforeach; endif; ?>
+				</ul>
       </div>
     </div>
   </div>
 
   <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="http://cdn.bootcss.com/highcharts/4.0.4/highcharts.js"></script>
-  <script>
-    $('#container').highcharts({
-				credits: {
-					enabled: false
-				}, 
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 1,//null,
-            plotShadow: false
-        },
-        title: {
-            text: 'Browser market shares at a specific website, 2014'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Browser share',
-            data: [
-                ['Firefox',   45.0],
-                ['IE',       26.8],
-								['Chrome',		12.8],
-                ['Safari',    8.5],
-                ['Opera',     6.2],
-                ['Others',   0.7]
-            ]
-        }]
-    });
-  </script>
 </body>
 </html>

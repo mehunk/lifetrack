@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -36,13 +36,13 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a href="{:U('Index/index')}">时间记录</a>
+            <a href="<?php echo U('Index/index');?>">时间记录</a>
           </li>
           <li>
-            <a href="{:U('Schedule/index')}">待办事项</a>
+            <a href="<?php echo U('Schedule/index');?>">待办事项</a>
           </li>
 					<li>
-            <a href="{:U('Category/index')}">事项分类</a>
+            <a href="<?php echo U('Category/index');?>">事项分类</a>
           </li>
           <li>
         </ul>
@@ -66,11 +66,7 @@
 				credits: {
 					enabled: false
 				}, 
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 1,//null,
-            plotShadow: false
-        },
+
         title: {
             text: 'Browser market shares at a specific website, 2014'
         },
@@ -96,6 +92,7 @@
             data: [
                 ['Firefox',   45.0],
                 ['IE',       26.8],
+                
 								['Chrome',		12.8],
                 ['Safari',    8.5],
                 ['Opera',     6.2],
