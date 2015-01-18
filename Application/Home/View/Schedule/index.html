@@ -159,11 +159,7 @@
       <div class="col-md-3 col-md-offset-7 col-xs-8 col-xs-offset-2">
         <div class="form-group">
           <div class="input-group">
-            <select class="form-control" id="search_date" name="search_date">
-              <foreach name="date_list" item="sd_date">
-                <option>{$sd_date}</option>
-              </foreach>
-            </select>
+            <input type="text" class="form-control" id="search_date" name="search_date">
             <div class="input-group-btn" id="search">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询 <span class="caret"></span></button>
               <ul class="dropdown-menu dropdown-menu-right" role="menu">
