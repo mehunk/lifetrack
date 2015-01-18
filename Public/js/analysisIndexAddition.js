@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 	$('#search_date button').click(function(event) {
 		event.preventDefault();
-		var url = indexUrl + '/search_date/' + $('#search_date').val();
+		var url = indexUrl + '/search_date/' + $('#search_date>input').val();
 		location.href = url;
 	})
 })
