@@ -49,26 +49,28 @@
       </div>
     </div>
   </nav>
-	
+
   <div class="container">
     <h3><?php echo ($search_date); ?>时间记录表</h3>
     <div class="row">
       <div class="col-xs-2">
         <a href="<?php echo U('edit', '', '');?>" class="btn btn-primary">新建时间</a>
       </div>
-      <div class="col-xs-6 col-xs-offset-4">
-        <form class="form-inline pull-right" method="get" action="<?php echo U('index');?>" role="form">
-          <div class="form-group">
-            <div class="input-group">
-              <select class="form-control" name="search_date">
-                <?php if(is_array($date_list)): foreach($date_list as $key=>$er_date): ?><option><?php echo ($er_date); ?></option><?php endforeach; endif; ?>
-              </select>
-              <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">Go!</button>
-              </span>
+      <div class="col-md-3 col-md-offset-7 col-xs-8 col-xs-offset-2">
+        <div class="form-group">
+          <div class="input-group">
+            <select class="form-control" id="search_date" name="search_date">
+              <?php if(is_array($date_list)): foreach($date_list as $key=>$er_date): ?><option><?php echo ($er_date); ?></option><?php endforeach; endif; ?>
+            </select>
+            <div class="input-group-btn" id="search">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询 <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li><a href="<?php echo U('index');?>">列表视图</a></li>
+                <li><a href="<?php echo U('timeline');?>">时间轴视图</a></li>
+              </ul>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
 
@@ -102,5 +104,12 @@
 
   <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script>
+  $('#search li').click(function(event) {
+    event.preventDefault();
+    var url = $(this).find('a').attr('href') + '/search_date/' + $('#search_date').val();
+    location.href = url;
+  })
+  </script>
 </body>
 </html>

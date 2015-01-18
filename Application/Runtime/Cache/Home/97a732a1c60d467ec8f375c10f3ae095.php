@@ -154,19 +154,21 @@
       <div class="col-xs-2">
         <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">新建待办</button>
       </div>
-      <div class="col-xs-6 col-xs-offset-4">
-        <form class="form-inline pull-right" method="get" action="<?php echo U('index');?>" role="form">
-          <div class="form-group">
-            <div class="input-group">
-              <select class="form-control" name="search_date">
-                <?php if(is_array($date_list)): foreach($date_list as $key=>$sd_date): ?><option><?php echo ($sd_date); ?></option><?php endforeach; endif; ?>
-              </select>
-              <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">Go!</button>
-              </span>
+      <div class="col-md-3 col-md-offset-7 col-xs-8 col-xs-offset-2">
+        <div class="form-group">
+          <div class="input-group">
+            <select class="form-control" id="search_date" name="search_date">
+              <?php if(is_array($date_list)): foreach($date_list as $key=>$sd_date): ?><option><?php echo ($sd_date); ?></option><?php endforeach; endif; ?>
+            </select>
+            <div class="input-group-btn" id="search">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询 <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li><a href="<?php echo U('index');?>">列表视图</a></li>
+                <li><a href="<?php echo U('timeline');?>">时间轴视图</a></li>
+              </ul>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
 
