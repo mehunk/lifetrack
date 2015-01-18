@@ -9,6 +9,7 @@
   <title>LifeTrack - Index</title>
 
   <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/css/datepicker3.min.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
@@ -59,9 +60,7 @@
       <div class="col-md-3 col-md-offset-7 col-xs-8 col-xs-offset-2">
         <div class="form-group">
           <div class="input-group">
-            <select class="form-control" id="search_date" name="search_date">
-              <?php if(is_array($date_list)): foreach($date_list as $key=>$er_date): ?><option><?php echo ($er_date); ?></option><?php endforeach; endif; ?>
-            </select>
+            <input type="text" class="form-control" id="search_date" name="search_date">
             <div class="input-group-btn" id="search">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">查询 <span class="caret"></span></button>
               <ul class="dropdown-menu dropdown-menu-right" role="menu">
@@ -104,12 +103,24 @@
 
   <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
   <script>
-  $('#search li').click(function(event) {
-    event.preventDefault();
-    var url = $(this).find('a').attr('href') + '/search_date/' + $('#search_date').val();
-    location.href = url;
-  })
+  $(document).ready(function() {
+    $('#search_date').datepicker({
+			format: "yyyy-mm-dd",
+			weekStart: 1,
+			language: "zh-CN",
+			calendarWeeks: true,
+			autoclose: true,
+			todayHighlight: true
+		});
+    $('#search li').click(function(event) {
+      event.preventDefault();
+      var url = $(this).find('a').attr('href') + '/search_date/' + $('#search_date').val();
+      location.href = url;
+    });
+  });  
   </script>
 </body>
 </html>
