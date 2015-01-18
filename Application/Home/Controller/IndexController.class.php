@@ -8,6 +8,7 @@ use Think\Controller;
 class IndexController extends Controller {
 	/**
 	 * 显示指定日期的时间记录，默认显示当天
+	 * @return null
 	 */
 	public function index() {
 		//获取指定日期，默认为当天
@@ -19,20 +20,19 @@ class IndexController extends Controller {
 		//时间记录列表
 		$er_list = D('eventrecordView')->where(array('er_date' => $search_date))->order('er_starttime')->select();
 
-		$this->assign('date_list', $date_list)
-			->assign('er_list', $er_list)
-			->display();
+		$this->assign('date_list', $date_list)->assign('er_list', $er_list)->display();
 	}
 
 	/**
 	 * 显示新建时间记录页面
+	 * @return null
 	 */
 	public function edit() {
 		$lastItem = D('eventrecordView')->order('er_id desc')->limit(1)->find(); //最后一条时间记录
 
 		$schedule_list = M('schedule')->where(array('sd_date' => date('Y-m-d'), 'sd_complete' => 0))->select(); //待办事项列表
 		//判断时间记录进度
-		if($lastItem['er_endtime'] || !$lastItem) {//如果有结束时间，则无中断事件记录
+		if($lastItem['er_endtime'] || !$lastItem) {//如果有结束时间或者数据表为空，则无中断事件记录
 			$pageStep = 0;
 		} else if($lastItem['er_sdid']) { //如果没有结束时间，有事件描述
 			$pageStep = 2;
@@ -40,15 +40,13 @@ class IndexController extends Controller {
 			$pageStep = 1;
 		}
 
-		$this->assign('pageStep', $pageStep)
-			->assign('lastItem', $lastItem)
-			->assign('schedule_list', $schedule_list)
-			->display();
+		$this->assign('pageStep', $pageStep)->assign('lastItem', $lastItem)->assign('schedule_list', $schedule_list)->display();
 	}
 
 	/**
 	 * 保存时间记录
 	 * 1、开始时间 2、事件描述 3、结束时间
+	 * @return null
 	 */
 	public function save() {
 		$eventItem = I('post.');
@@ -70,7 +68,7 @@ class IndexController extends Controller {
 		}
 		else if(isset($eventItem['er_endtime'])) { //结束时间
 			M('eventrecord')->where('er_endtime is null')->save($eventItem);
-			M('eventrecord')->execute("update __EVENTRECORD__ set er_eventtime = TIMESTAMPDIFF(SECOND, er_starttime, er_endtime) order by er_id desc limit 1");
+			//M('eventrecord')->execute("update __EVENTRECORD__ set er_eventtime = TIMESTAMPDIFF(SECOND, er_starttime, er_endtime) order by er_id desc limit 1");
 		}
 
 	}

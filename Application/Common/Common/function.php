@@ -1,5 +1,9 @@
 <?php
-//将时间持续时间秒单位转换为小时:分钟:秒格式
+/**
+ * 将时间持续时间秒单位转换为小时:分钟:秒格式
+ * @param  int
+ * @return string
+ */
 function secondToTime($totalSecond) {
 	$hours = intval($totalSecond/3600);
 	$minutes = intval($totalSecond%3600/60);
@@ -9,9 +13,13 @@ function secondToTime($totalSecond) {
 
 }
 
+/**
+ * 将单位秒转换成单位分钟
+ * @param  int
+ * @return int
+ */
 function secondToMinute($totalSecond) {
 	$minutes = intval($totalSecond/60);
-	
 	return $minutes;
 }
 ?>

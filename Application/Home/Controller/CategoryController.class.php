@@ -8,9 +8,9 @@ use Think\Controller;
 class CategoryController extends Controller {
 	/**
 	 * 显示指定日期的待办事项，默认为当天
+	 * @return null
 	 */
 	public function index() {
-
 		//事项分类列表
 		$cg_list = M('category')->select();
     	$this->assign('cg_list', $cg_list)->display();
@@ -18,6 +18,7 @@ class CategoryController extends Controller {
 
 	/**
 	 * 保存事项分类
+	 * @return null
 	 */
 	public function save() {
 		$cg_info = I('post.');
@@ -31,6 +32,7 @@ class CategoryController extends Controller {
 
 	/**
 	 * 删除事项分类
+	 * @return null
 	 */
 	public function delete() {
 		$condition = I('get.');
@@ -38,7 +40,10 @@ class CategoryController extends Controller {
 			$this->success();
 	}
 
-	//修改事项分类显示状态
+	/**
+	 * 修改事项分类显示状态
+	 * @return null
+	 */
 	public function changeDisplay() {
 		$condition = I('get.');
 		$display = M('category')->where($condition)->getField('cg_display');
