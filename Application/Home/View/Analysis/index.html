@@ -108,6 +108,12 @@
           <ul class="nav bs-docs-sidenav">
             <li class=""><a href="#container">时间记录比例</a></li>
           </ul>
+          <div class="input-group" id="search_date">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default">查询</button>
+            </span>
+          </div>
         </nav>
       </div>
       <div class="col-md-9">
@@ -121,7 +127,9 @@
   <script src="http://cdn.bootcss.com/highcharts/4.0.4/highcharts.js"></script>
   <script src="__PUBLIC__/js/generateChart.js"></script>
   <script>
+    var indexUrl = "{:U('index', '', '')}";
     var chartDataUrl = "{:U('getChartData', '', '')}";
+    var search_date = "{$search_date}";
   </script>
 </body>
 </html>

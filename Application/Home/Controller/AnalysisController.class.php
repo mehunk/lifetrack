@@ -11,7 +11,8 @@ class AnalysisController extends Controller {
 	 * @return null
 	 */
 	public function index() {
-		$this->display();
+		$search_date = I('search_date', date('Y-m-d'), 'trim');
+		$this->assign('search_date', $search_date)->display();
 	}
 
 	/**
@@ -21,7 +22,7 @@ class AnalysisController extends Controller {
 	public function getChartData() {
 		$day_sec = 24 * 60 * 60;
 		$search_date = I('search_date', date('Y-m-d'), 'trim');
-		$rec_sec = M('eventrecord')->where(array('er_date' => '2015-01-13'))->sum('er_eventtime');
+		$rec_sec = M('eventrecord')->where(array('er_date' => $search_date))->sum('er_eventtime');
 		$ajax_data = array(
 			array('记录时间', (int)($rec_sec / $day_sec * 100)),
 			array('未记录时间', (int)((1 - $rec_sec / $day_sec) * 100))
