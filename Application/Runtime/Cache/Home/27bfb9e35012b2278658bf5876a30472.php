@@ -9,6 +9,7 @@
   <title>LifeTrack - Analysis</title>
 
   <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/css/datepicker3.min.css" rel="stylesheet">
   <style type="text/css">
   body, button, input, h3{
     font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
@@ -17,6 +18,57 @@
   body {
     padding-top: 50px;
     padding-bottom: 40px;
+  }
+  .bs-docs-sidebar.affix {
+    position: static;
+  }
+  @media (min-width: 768px) {
+  .bs-docs-sidebar {
+      padding-left: 20px;
+  }
+  }
+  .bs-docs-sidenav {
+      margin-bottom: 20px;
+      margin-top: 20px;
+  }
+  .bs-docs-sidebar .nav > li > a {
+      color: #999;
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 4px 20px;
+  }
+  .bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
+      background-color: transparent;
+      border-left: 1px solid #563d7c;
+      color: #563d7c;
+      padding-left: 19px;
+      text-decoration: none;
+  }
+  .bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a {
+      background-color: transparent;
+      border-left: 2px solid #563d7c;
+      color: #563d7c;
+      font-weight: 700;
+      padding-left: 18px;
+  }
+  .bs-docs-sidebar .nav .nav {
+      display: none;
+      padding-bottom: 10px;
+  }
+  .bs-docs-sidebar .nav .nav > li > a {
+      font-size: 12px;
+      font-weight: 400;
+      padding-bottom: 1px;
+      padding-left: 30px;
+      padding-top: 1px;
+  }
+  .bs-docs-sidebar .nav .nav > li > a:hover, .bs-docs-sidebar .nav .nav > li > a:focus {
+      padding-left: 29px;
+  }
+  .bs-docs-sidebar .nav .nav > .active > a, .bs-docs-sidebar .nav .nav > .active:hover > a, .bs-docs-sidebar .nav .nav > .active:focus > a {
+      font-weight: 500;
+      padding-left: 28px;
   }
   </style>
 </head>
@@ -52,7 +104,20 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div role="complementary" class="col-md-3">
+        <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+          <ul class="nav bs-docs-sidenav">
+            <li class=""><a href="#container">时间记录比例</a></li>
+          </ul>
+          <div class="input-group" id="search_date">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default">查询</button>
+            </span>
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-9">
         <div id="container" style="min-width:800px;height:400px"></div>
       </div>
     </div>
@@ -60,10 +125,15 @@
 
   <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.3.1/js/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
   <script src="http://cdn.bootcss.com/highcharts/4.0.4/highcharts.js"></script>
   <script src="/github/lifetrack/Public/js/generateChart.js"></script>
+  <script src="/github/lifetrack/Public/js/analysisIndexAddition.js"></script>
   <script>
+    var indexUrl = "<?php echo U('index', '', '');?>";
     var chartDataUrl = "<?php echo U('getChartData', '', '');?>";
+    var search_date = "<?php echo ($search_date); ?>";
   </script>
 </body>
 </html>
