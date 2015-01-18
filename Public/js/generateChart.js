@@ -30,7 +30,7 @@ $(document).ready(function() {
 		series: [{}],
 	};
 	
-	$.getJSON(chartDataUrl, function(data) {
+	$.getJSON(chartDataUrl, search_date, function(data) {
 		options.series[0].data = data;
 		var chart = new Highcharts.Chart(options);
 	});
