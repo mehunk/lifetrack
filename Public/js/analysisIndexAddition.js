@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	//初始化datepicker插件
-	$('#search_date').datepicker({
+	$('#search_date>input').datepicker({
 		format: "yyyy-mm-dd",
 		weekStart: 1,
 		language: "zh-CN",
