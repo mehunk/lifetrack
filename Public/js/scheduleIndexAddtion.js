@@ -8,7 +8,7 @@ $(document).ready(function() {
 	});
 
 	//初始化datepicker插件
-	$('.input-group.date').datepicker({
+	$('.input-group.date,#search_date').datepicker({
 		format: "yyyy-mm-dd",
 		weekStart: 1,
 		language: "zh-CN",
