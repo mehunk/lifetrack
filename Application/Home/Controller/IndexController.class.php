@@ -74,7 +74,7 @@ class IndexController extends Controller {
 				//当日的开始时间设置为0:0:0，结束时间设置为当前结束时间，日期设置为当前日期
 				$new = array('er_starttime' => '00:00:00',
 					'er_endtime' => $eventItem['er_endtime'],
-					'er_date' => date('Y-m-d')
+					'er_date' => date('Y-m-d'),
 					'er_sdid' => $last['er_sdid']);
 				M('eventrecord')->add($new);
 			}
