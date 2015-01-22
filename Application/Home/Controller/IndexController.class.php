@@ -70,9 +70,9 @@ class IndexController extends Controller {
 				M('eventrecord')->where('er_endtime is null')->save($eventItem);
 			else { //如果结束日期为第二天
 				//将该事件分成两个，前一日的结束时间设置为23:59:59
-				M('eventrecord')->where('er_endtime is null')->save(array('er_endtime' => 23:59:59));
+				M('eventrecord')->where('er_endtime is null')->save(array('er_endtime' => '23:59:59'));
 				//当日的开始时间设置为0:0:0，结束时间设置为当前结束时间，日期设置为当前日期
-				$new = array('er_starttime' => 00:00:00,
+				$new = array('er_starttime' => '00:00:00',
 					'er_endtime' => $eventItem['er_endtime'],
 					'er_date' => date('Y-m-d')
 					'er_sdid' => $last['er_sdid']);
